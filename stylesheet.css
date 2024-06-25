@@ -1,0 +1,104 @@
+body {
+    background-color: #f7f8fa;
+    color: #343a40;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    height: 100%;
+    padding-left: 0; 
+}
+
+.sidebar {
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    border-right: 1px solid #e2e2e2; 
+}
+
+.sidebar .nav-item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.sidebar .nav-item-container a {
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    display: block;
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar .nav-item-container a:hover {
+    background-color: #e2e2e2;
+}
+
+.placeholder-text {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.main-content {
+    height: 100vh;
+    overflow-y: auto;
+    padding-left: 15px; 
+}
+
+.page-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+.ranking-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.ranking-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.ranking-card table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ranking-card table thead th {
+    background-color: #f1f1f1;
+    color: #343a40;
+    font-weight: bold;
+}
+
+.ranking-card table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.ranking-card table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    border-top: 1px solid #e2e2e2;
+}
