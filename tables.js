@@ -4,6 +4,10 @@
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FETCH DATA
 const cryptoApi = "https://api.coinlore.net/api/tickers/";
 
+let originalData = [];
+let filteredData = [];
+
+
 function fetchCryptoData() {
   fetch(cryptoApi)
     .then(response => {
@@ -37,6 +41,16 @@ function fetchCryptoData() {
         const sortedData = data.data.slice().sort((a, b) => a.percent_change_7d - b.percent_change_7d);
         populateTable(sortedData, bestFallingTable);
       }
+
+
+      // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>SEARCH
+
+      //>>>>>>>>>>>>>>>>>>>>>>>>>>>> Save original data
+      originalData = data.data; 
+      //>>>>>>>>>>>>>>>>>>>>>>>>> Initialize filtered data with original
+      filteredData = [...originalData]; 
+      //>>>>>>>>>>>>>>>>>>>>>>>>>>> Initial population of tables with original data
+      populateTables(filteredData); 
     })
     .catch(error => {
       console.error('Error fetching crypto data:', error);
@@ -48,7 +62,7 @@ function populateTable(array, tableId) {
   table.innerHTML = "";
 
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Create table headers
-  const headers = ["Name", "Price In USD", "percent_change_7d"];
+  const headers = ["Name", "Price In USD", "Change Last 7 Days"];
   const trHeader = document.createElement("tr");
 
   headers.forEach((headerText, index) => {
@@ -73,7 +87,7 @@ function populateTable(array, tableId) {
     const rowData = [
       element.name,
       `$ ${parseFloat(element.price_usd).toFixed(2)}`,
-      `${parseFloat(element.percent_change_7d).toFixed(2)}`
+      `${parseFloat(element.percent_change_7d).toFixed(2)}%`
     ];
 
     rowData.forEach((cellData, index) => {
@@ -96,13 +110,41 @@ function populateTable(array, tableId) {
   table.appendChild(tbody);
 }
 
-// >>>>>>>>>>>>>>Initial fetch and table population
+// >>>>>>>>>>>>>> Initial fetch and table population
 fetchCryptoData();
 
-// >>>>>>>>>>>>>>>>>>>>><<Refresh data every 30 seconds
-setInterval(fetchCryptoData, 30000);
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<Sorting function
+// >>>>>>>>>>>>>> Refresh data every 30 seconds
+// setInterval(fetchCryptoData, 3000);
+
+let refreshIntervalId;
+function startRefreshInterval() {
+  refreshIntervalId = setInterval(() => {
+
+    //>>>>>>>>>> Only fetch data if filteredData is empty (No active search)
+    if (filteredData.length === 0) {
+      fetchCryptoData();
+    } 
+    else {
+      //>>>>>>>>>>>> Populate tables with filtered data
+      populateTables(filteredData); 
+    }
+  }, 30000);
+}
+startRefreshInterval()
+
+//>>>>>>>>>>>>>>>>>>>>> Function to stop the refresh interval
+function stopRefreshInterval() {
+  clearInterval(refreshIntervalId);
+}
+
+
+// ========================================================================================================
+// ========================================================================================================
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><>><<<Sorting function
 const sortDirection = {};
 
 function sortTable(tableId, columnIndex) {
@@ -139,6 +181,67 @@ function sortTable(tableId, columnIndex) {
   tbody.innerHTML = "";
   rows.forEach(row => tbody.appendChild(row));
 }
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>SEARCH
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Function to populate tables with filtered data
+
+function populateTables(data) {
+  populateTable(sortAndLimit(data, 'price_usd', 'desc'), "growthFutureTable");
+  populateTable(sortAndLimit(data, 'percent_change_7d', 'desc'), "bestGrowingTable");
+  populateTable(sortAndLimit(data, 'percent_change_7d', 'asc'), "bestFallingTable");
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Function to sort data and limit results
+function sortAndLimit(data, sortBy, sortOrder) {
+  const sortedData = data.slice().sort((a, b) => {
+    if (sortBy === 'price_usd') {
+      return sortOrder === 'asc' ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
+    }
+    else if (sortBy === 'percent_change_7d') {
+      return sortOrder === 'asc' ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
+    }
+  });
+  //>>>>>>>>>>>>>>>>>>>>>>< Limit to top 10
+  return sortedData.slice(0, 10); 
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>< Event listener for search input
+
+const searchInput = document.getElementById('cryptoSearch');
+searchInput.addEventListener("input", function() {
+const searchText = this.value.trim().toLowerCase();
+
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Filter original data based on search text
+  filteredData = originalData.filter(item => {
+    return item.name.toLowerCase().includes(searchText);
+  });
+
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Repopulate tables with filtered data
+  populateTables(filteredData);
+
+
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Stop refreshing when user searches
+  stopRefreshInterval();
+  startRefreshInterval();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
