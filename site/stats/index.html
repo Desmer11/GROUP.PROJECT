@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Simulator - Statistics</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="stylesheet.css" rel="stylesheet">
+  <link href="styleStats.css" rel="stylesheet">
+  <link href="darkmode.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   NAV BAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./../home/index.html">Crypto Simulator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./../stats/index.html">Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./../sim/index.html">Simulator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./../info/index.html">Information Center</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./../login/index.html">Log In</a>
+          </li>
+          <li class="nav-item" id="login">
+            <button type="button" class="btn btn-primary" href="./../login/index.html">Register</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MAIN CONTENT -->
+  <div class="container-fluid" style="margin-top: 80px;">
+    <main class="main-content">
+      <div class="container">
+        <h1 class="page-header text-center">Statistics Page</h1>
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>SEARCH -->
+        <br>
+        <input type="text" class="text-center" id="cryptoSearch" placeholder="Search cryptocurrencies...">
+        <br>
+        <br>
+        <div class="row">
+
+
+          <div class="row">
+            <div id="left-table" class="col-md-6 col-lg-6 ranking-card">
+              <div class="table-headings">
+                <h5 class="table-heading">Future Growth</h5>
+                <p class="table-subheading">Daily stats (16/6)</p>
+              </div>
+              <table id="growthFutureTable" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price In USD</th>
+                    <th>percent_change_7d</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <div class="table-nav">
+                <button class="tableButton" id="growthFutureTable-prev"
+                  onclick="goToPage('growthFutureTable', -1)">Previous</button>
+                <button class="tableButton" id="growthFutureTable-next"
+                  onclick="goToPage('growthFutureTable', 1)">Next</button>
+                <button class="tableButton" id="growthFutureTable-first"
+                  onclick="goToFirstPage('growthFutureTable')">First Page</button>
+              </div>
+            </div>
+
+            <div id="right-table" class="col-md-6 col-lg-6 ranking-card">
+              <div class="table-headings">
+                <h5 class="table-heading">Best growing in 7 days</h5>
+                <p class="table-subheading">Daily stats (16/6)</p>
+              </div>
+              <table id="bestGrowingTable" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price In USD</th>
+                    <th>percent_change_7d</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <div class="table-nav">
+                <button class="tableButton" id="bestGrowingTable-prev"
+                  onclick="goToPage('bestGrowingTable', -1)">Previous</button>
+                <button class="tableButton" id="bestGrowingTable-next"
+                  onclick="goToPage('bestGrowingTable', 1)">Next</button>
+                <button class="tableButton" id="bestGrowingTable-first"
+                  onclick="goToFirstPage('bestGrowingTable')">First Page</button>
+              </div>
+            </div>
+
+            <div class="col-12 ranking-card">
+              <div class="table-headings">
+                <h5 class="table-heading">Best falling in 7 days</h5>
+                <p class="table-subheading">Daily stats (16/6)</p>
+              </div>
+              <table id="bestFallingTable" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price In USD</th>
+                    <th>percent_change_7d</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <div class="table-nav">
+                <button class="tableButton" id="bestFallingTable-prev"
+                  onclick="goToPage('bestFallingTable', -1)">Previous</button>
+                <button class="tableButton" id="bestFallingTable-next"
+                  onclick="goToPage('bestFallingTable', 1)">Next</button>
+                <button class="tableButton" id="bestFallingTable-first"
+                  onclick="goToFirstPage('bestFallingTable')">First Page</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+  </div>
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="./../home/index.html">Home</a>
+        <a href="./../info/index.html">Information Center</a>
+        <a href="./../stats/index.html">Statistics</a>
+        <a href="./../sim/index.html">Simulator</a>
+      </div>
+    </div>
+    <div class="social-icons">
+      <p id="contact-txt">Contact</p>
+      <a href="#"><img src="../media/facebook-logo-white.png" alt="Facebook-icon"></a>
+      <a href="#"><img src="../media./X_logo_2023_(white).png" alt="X-icon"></a>
+      <a href="#"><img src="../media/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1.png"
+          alt="Instagram-icon"></a>
+      <a href="#"><img src="../media/linkedin-icon-1024x1024-k39l5ziu.png" alt="LinkedIn-icon"></a>
+    </div>
+    </div>
+    <p id="copyright">© 2024 Qinshift Academy. All rights reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="tables.js"></script>
+  <script src="darkmode.js"></script>
+</body>
+
+</html>

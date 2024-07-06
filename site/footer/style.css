@@ -1,0 +1,150 @@
+#footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  color: #fff;
+  width: 100%;
+  height: 50vh;
+  background: rgb(247, 248, 250);
+  background: linear-gradient(
+    180deg,
+    rgba(247, 248, 250, 1) 7%,
+    rgba(0, 123, 255, 1) 51%
+  );
+}
+
+#footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+  position: relative;
+  top: 30%;
+}
+
+#footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+#footer .footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+#footer .footer-links a:hover {
+  color: #ffcc00;
+}
+
+#footer .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#footer .social-icons #contact-txt {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  top: 30%;
+}
+
+#footer .social-icons a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+#footer .social-icons a img {
+  width: 24px;
+  height: 24px;
+}
+
+#footer .social-icons a:hover {
+  transform: scale(1.1);
+}
+
+#copyright {
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  top: 20%;
+}
+
+@media (max-width: 576px) {
+  #footer {
+    padding: 20px 10px;
+    height: auto;
+  }
+
+  #footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: auto;
+  }
+
+  #footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30%;
+  }
+
+  #footer .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+
+  #footer .footer-links a:hover {
+    color: #ffcc00;
+  }
+
+  #footer .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #footer .social-icons #contact-txt {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: -4.5%;
+  }
+
+  #footer .social-icons a {
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+
+  #footer .social-icons a img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #footer .social-icons a:hover {
+    transform: scale(1.1);
+  }
+
+  #copyright {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 20%;
+  }
+}

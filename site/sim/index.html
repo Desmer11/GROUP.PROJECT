@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Simulator - Statistics</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="stylesheetSimulator.css" rel="stylesheet">
+</head>
+<body>
+
+     <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   NAV BAR -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+    <a class="navbar-brand" href="./../home/index.html">Crypto Simulator</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./../stats/index.html">Statistics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./../sim/index.html">Simulator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./../info/index.html">Information Center</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+          <a class="nav-link" href="./../login/index.html">Log In</a>
+        </li>
+        <li class="nav-item" id="login">
+          <button type="button" class="btn btn-primary" href="./../login/index.html">Register</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MAIN CONTENT -->
+
+
+      <main class="main-content">
+        <div class="wallet-container">
+          <h1 class="page-header text-center">Crypto Wallet</h1>
+          <div class="balance-section">
+            <h2>Balance</h2>
+            <div id="wallet-amount"></div>
+            <hr>
+            <div id="balance"></div>
+          </div>
+          <div class="transaction-section">
+            <h2>Transactions</h2>
+            <ul id="transaction-list"></ul>
+          </div>
+          <div class="transaction-form">
+            <h2>Perform Transaction</h2>
+            <label for="crypto-select">Select Cryptocurrency:</label>
+            <select id="crypto-select"></select><br><br>
+            <label for="transaction-type">Transaction Type:</label>
+            <select id="transaction-type">
+              <option value="buy">Buy</option>
+              <option value="sell">Sell</option>
+            </select><br><br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" min="0" step="any"><br><br>
+            <button id="perform-transaction">Perform Transaction</button>
+          </div>
+          <div id="error-message" style="color: red;"></div>
+        </div>
+      </main>
+    </div>
+
+          <!-- >>>>>>>>>>>>>>>>   FOOTER -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="./../home/index.html">Home</a>
+          <a href="./../info/index.html">Information Center</a>
+          <a href="./../stats/index.html">Statistics</a>
+          <a href="./../sim/index.html">Simulator</a>
+        </div>
+        <div class="social-icons">
+          <p id="contact-txt">Contact</p>
+          <a href="#"><img src="../media/facebook-logo-white.png" alt="Facebook-icon"></a>
+          <a href="#"><img src="../media./X_logo_2023_(white).png" alt="X-icon"></a>
+          <a href="#"><img src="../media/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1.png" alt="Instagram-icon"></a>
+          <a href="#"><img src="../media/linkedin-icon-1024x1024-k39l5ziu.png" alt="LinkedIn-icon"></a>
+        </div>
+      </div>
+
+
+
+      <p id="copyright">© 2024 Qinshift Academy. All rights reserved.</p>
+    </footer>
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="simulator.js"></script>
+        <script src="darkmode.js"></script>
+        <link href="darkmode.css" rel="stylesheet">
+    </body>
+    </html>
+    
