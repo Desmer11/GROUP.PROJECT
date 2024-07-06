@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Simulator - Login & Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="darkmode.css" rel="stylesheet">
+</head>
+<body>
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   NAV BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+    <a class="navbar-brand" href="./../home/index.html">Crypto Simulator</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./../stats/index.html">Statistics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./../sim/index.html">Simulator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./../info/index.html">Information Center</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+          <a class="nav-link" href="./../login/index.html">Log In</a>
+        </li>
+        <li class="nav-item" id="login">
+          <button type="button" class="btn btn-primary" href="./../login/index.html">Register</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MAIN CONTENT -->
+
+
+    <div class="container-fluid" style="margin-top: 80px;">
+        <main class="main-content">
+            <div class="container">
+                <h1 class="page-header text-center">Login & Register</h1>
+                <div class="row">
+                    <div id="left-sq" class="col-md-6 squircles">
+                        <div class="squircle-content">
+                            <h3>Login</h3>
+                            <form id="login-form">
+                                <div class="form-group">
+                                    <label for="login-email">Email:</label>
+                                    <input type="email" id="login-email" class="form-control border-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password">Password:</label>
+                                    <input type="password" id="login-password" class="form-control border-input" required>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-fill">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="right-sq" class="col-md-6 squircles">
+                        <div class="squircle-content">
+                            <h3>Register</h3>
+                            <form id="signup-form">
+                                <div class="form-group">
+                                    <label for="signup-email">Email:</label>
+                                    <input type="email" id="signup-email" class="form-control border-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-password">Password:</label>
+                                    <input type="password" id="signup-password" class="form-control border-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-balance">Initial Balance:</label>
+                                    <input type="number" id="signup-balance" class="form-control border-input" required>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" id="signup-terms" class="form-check-input">
+                                    <label for="signup-terms" class="form-check-label">Accept Terms and Conditions</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" id="signup-newsletter" class="form-check-input">
+                                    <label for="signup-newsletter" class="form-check-label">Subscribe to Newsletter</label>
+                                </div>
+                                <button type="submit" class="btn btn-info btn-fill">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="message" class="text-center"></div>
+            </div>
+        </main>
+    </div>
+	
+	<footer id="footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="./../home/index.html">Home</a>
+      <a href="./../info/index.html">Information Center</a>
+      <a href="./../stats/index.html">Statistics</a>
+      <a href="./../sim/index.html">Simulator</a>
+    </div>
+    </div>
+    <div class="social-icons">
+      <p id="contact-txt">Contact</p>
+      <a href="#"><img src="../media/facebook-logo-white.png" alt="Facebook-icon"></a>
+      <a href="#"><img src="../media./X_logo_2023_(white).png" alt="X-icon"></a>
+      <a href="#"><img src="../media/CITYPNG.COMHD-White-Instagram-Round-Logo-Icon-PNG-1600x1200-1.png" alt="Instagram-icon"></a>
+      <a href="#"><img src="../media/linkedin-icon-1024x1024-k39l5ziu.png" alt="LinkedIn-icon"></a>
+    </div>
+  </div>
+  <p id="copyright">© 2024 Qinshift Academy. All rights reserved.</p>
+</footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="darkmode.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

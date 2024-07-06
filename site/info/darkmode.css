@@ -1,0 +1,118 @@
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff; 
+}
+
+
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode li,
+body.dark-mode ul,
+body.dark-mode span,
+body.dark-mode div,
+body.dark-mode table,
+body.dark-mode th,
+body.dark-mode td {
+    color: #ffffff; 
+}
+
+
+body.dark-mode .container,
+body.dark-mode .container-fluid,
+body.dark-mode .row,
+body.dark-mode .col,
+body.dark-mode .sidebar,
+body.dark-mode .main-content,
+body.dark-mode .footer,
+body.dark-mode .nav-item-container,
+body.dark-mode .ranking-card,
+body.dark-mode .card,
+body.dark-mode .navbar,
+body.dark-mode .header,
+body.dark-mode .section {
+    background-color: #1e1e1e;
+}
+
+
+body.dark-mode button {
+    background-color: #333;
+    color: #ffffff; 
+}
+
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #333;
+    color: #ffffff; 
+    border-color: #444;
+}
+
+
+body.dark-mode .table thead th {
+    background-color: #242424;
+    color: #ffffff; 
+    border-color: #444; 
+}
+
+body.dark-mode .table tbody td {
+    border-color: #444; 
+}
+
+body.dark-mode .navbar,
+body.dark-mode .footer {
+    border-color: #444; 
+}
+
+body.dark-mode .ranking-card {
+    border-color: #444; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+
+body.dark-mode table tbody tr:nth-child(odd) {
+    background-color: #2b2b2b;
+}
+
+body.dark-mode table tbody tr:nth-child(even) {
+    background-color: #343434;
+}
+
+body.dark-mode table tbody tr:hover {
+    background-color: rgba(36, 36, 36, 0.9);
+}
+
+
+body.dark-mode img {
+    filter: invert(1) hue-rotate(180deg) brightness(1.1);
+}
+
+
+body.dark-mode .bg-img {
+    filter: invert(1) hue-rotate(180deg) brightness(1.1);
+}
+
+.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .content {
+            padding: 10px;
+            margin: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .no-dark-mode {
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            color: #000;
